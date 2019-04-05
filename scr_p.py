@@ -4,13 +4,14 @@
 
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
+
 import sqlite3
 import re
-
 import urllib
 
 from scr_p_config import DB_PATH
 from scr_p_config import START_URL
+from scr_p_config import MASK
 
 
 def connect_to_db(path_to_db=DB_PATH):
@@ -27,7 +28,7 @@ def connect_to_db(path_to_db=DB_PATH):
 def get_title(bsObj):
     return bsObj.find('meta', {'name':'description'})['content']
 
-def get_title2(bsObj, mask=' - Порно'):
+def get_title2(bsObj, mask=MASK):
     title2 = bsObj.find('head').find('title').get_text()
     title2 = title2[:title2.index(mask)]
     return title2
