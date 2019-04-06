@@ -1,5 +1,5 @@
 # encoding:utf-8
-# loading articles from url list
+# loading articles from existed list of target urls (url of first page of article)
 
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
